@@ -1,0 +1,23 @@
+{
+  "name": "todo_api",
+  "version": "1.0.0",
+  "description": "simple RESTful API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romppane/Todo_API.git"
+  },
+  "author": "Roni Metsämuuronen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romppane/Todo_API/issues"
+  },
+  "homepage": "https://github.com/romppane/Todo_API#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}
