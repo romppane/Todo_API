@@ -28,6 +28,19 @@ router.post('/', (req, res) => {
   })
 });
 
+// get single todo
+router.get('/:id', (req, res) => {
+  db.query('SELECT * FROM todo WHERE id = ?', req.params.id, (err, result, fields) => {
+    if(err){
+      console.log(err);
+      res.sendStatus(400);
+    }
+    else {
+      res.send(result);
+    }
+  })
+});
+
 // update todo
 router.put('/:id', (req, res) => {
   db.query('UPDATE todo SET ? where id = ?', [req.body, req.params.id], (err, rows, fields) => {
