@@ -126,6 +126,7 @@ Node.js todo api
 ]</p>
 
 <h2>/priorities/:id</h2>
+<h3>GET</h3>
 <p>localhost:55555/priorities/1</p>
 <p>[
     {
