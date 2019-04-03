@@ -72,7 +72,7 @@ Node.js todo api
 
 <h3>POST</h3>
 
-<p>input:
+<p>example:
     {
         "what": "Drink beer",
         "who": "Matti Meikäläinen",
