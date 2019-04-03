@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = 55555;
 const bodyparser = require('body-parser');
 const db = require('./db.js');
 const todo = require('./routes/todo.js');
 const priorities = require('./routes/priorities.js');
+const port = process.env.PORT;
 
 app.use(bodyparser.json());
 
