@@ -100,7 +100,7 @@ Node.js todo api
 <h3>DELETE</h3>
     <p>Deletes by id.</p>
 
-<h2>/priorities</h2>'
+<h2>/priorities</h2>
 <h3>GET</h3>
 <p>[
     {
