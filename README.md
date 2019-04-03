@@ -8,7 +8,7 @@ Node.js todo api
 <p>4. Type in your password and the database gets written.</p>
 <img src="pictures/restore.PNG" alt="windows cmd restore db">
 
-<h2>Node install</h2>
+<h2>Configure Node</h2>
 <p>1. Go to the root directory of the project and run npm install.</p>
 <p>2. Configure the .env-example file with the credentials of your own. Set PORT to which port you want server to be ran on, example 55555. HOST is the addres of your database host address, example: localhost. USER field stands for the username of your database user, example: root. PASSWORD is the password of your database users password, example: root1234. Finally the DB field is the name of your database which you will be using, example: todoDB.</p>
 <img src='pictures/env.PNG' alt="env fields in editor">
