@@ -8,7 +8,7 @@ const priorities = require('./routes/priorities.js');
 
 app.use(bodyparser.json());
 
-// use route localhost:55555/todo/...
+// set routes after localhost:55555
 app.use('/todo', todo);
 app.use('/priorities', priorities);
 
