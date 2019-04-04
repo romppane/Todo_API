@@ -4,7 +4,7 @@ Node.js todo api
 ## Database recovery
 1. Open mysql and create a new database, name it as you like, example: todoDB
 2. Open cmd and head to the bin directory of your mysql installment, example: C:\Program Files\MySQL\MySQL Server 5.7\bin
-3. Once in bin directory run: mysql -h YOUR_HOST_ADDRESS -u YOUR_USERNAME -p YOUR_TARGET_DATABASE_NAME < PATH_TO_todoDB.sql
+3. Once in bin directory run: mysql -h **YOUR_HOST_ADDRESS** -u **YOUR_USERNAME** -p **YOUR_TARGET_DATABASE_NAME** < **PATH_TO_todoDB.sql**
 4. Type in your password and the database gets written.
 <img src="pictures/restore.PNG" alt="windows cmd restore db">
 
