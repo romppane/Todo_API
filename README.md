@@ -10,14 +10,15 @@ Node.js todo api
 
 ## Configure Node
 1. Go to the root directory of the project and run npm install.
-2. Configure the .env-example file with the credentials of your own.
+2. Create a .env file to the root of the project.
+3. Copy the skeleton for .env from .env-example
+4. Configure the .env file with the credentials of your own.
     * Set PORT to which port you want server to be ran on, example 55555.
     * HOST is the addres of your database host address, example: localhost.
     * USER field stands for the username of your database user, example: root.
     * PASSWORD is the password of your database users password, example: root1234.
     * Finally the DB field is the name of your database which you will be using, example: todoDB.
-3. Rename .env-example to .env
-4. Start the server with the command: node server.js
+5. Start the server with the command: node server.js
 <img src='pictures/env.PNG' alt="env fields in editor">
 
 # Api calls and routes
@@ -94,17 +95,15 @@ localhost:55555/todo/10
 
 output: 
 
-    [
-        {
-            "id": 10,
-            "what": "Drink beer",
-            "who": "Matti Meikäläinen",
-            "in_progress": 0,
-            "done": 1,
-            "due": "2019-03-30T22:00:00.000Z",
-            "priority": 5
-        }
-    ]
+    {
+      "id": 10,
+      "what": "Drink beer",
+      "who": "Matti Meikäläinen",
+      "in_progress": 0,
+      "done": 1,
+      "due": "2019-03-30T22:00:00.000Z",
+      "priority": 5
+    }
 
 ### PUT
 In put method user can insert just the data that needs to be changed, inserting the whole object isn't necessary
@@ -152,9 +151,7 @@ Deletes by id.
 ### GET
 localhost:55555/priorities/1
 
-    [
-        {
-            "id": 1,
-            "title": "very low"
-        }
-    ]
+    {
+      "id": 1,
+      "title": "very low"
+    }
