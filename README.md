@@ -91,6 +91,7 @@ example:
 
 ### GET
 localhost:55555/todo/10
+
 output: 
 
     [
@@ -107,6 +108,7 @@ output:
 
 ### PUT
 In put method user can insert just the data that needs to be changed, inserting the whole object isn't necessary
+
 example:
 
     {
