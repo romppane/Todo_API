@@ -16,10 +16,10 @@ Node.js todo api
     * USER field stands for the username of your database user, example: root.
     * PASSWORD is the password of your database users password, example: root1234.
     * Finally the DB field is the name of your database which you will be using, example: todoDB.
+    
+<img src='pictures/env.PNG' alt="env fields in editor">
 3. Rename .env-example to .env
 4. Start the server with the command: node server.js
-
-<img src='pictures/env.PNG' alt="env fields in editor">
 
 # Api calls and routes
 All calls will return status code 400 on failure. POST, PUT and DELETE methods return status code 200 on success.
