@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
       res.sendStatus(400);
     }
     else {
-      res.send(result);
+      res.send(result[0]);
     }
   })
 });
