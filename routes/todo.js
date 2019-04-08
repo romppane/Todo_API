@@ -3,9 +3,11 @@ const express = require('express');
 const router = express.Router();
 const joi = require('joi');
 
+
+// Create seperate schemas: Post has required fields where as put doesn't
 const postSchema = joi.object().keys({
-  what: joi.string().max(100).required(),
-  who: joi.string().max(40).required(),
+  what: joi.string().min(2).max(100).required(),
+  who: joi.string().min(1).max(40).required(),
   in_progress: joi.boolean(),
   done: joi.boolean(),
   due: joi.string(),
@@ -13,8 +15,8 @@ const postSchema = joi.object().keys({
 }).options({stripUnknown : true});
 
 const putSchema = joi.object().keys({
-  what: joi.string().max(100),
-  who: joi.string().max(40),
+  what: joi.string().min(2).max(100),
+  who: joi.string().min(1).max(40),
   in_progress: joi.boolean(),
   done: joi.boolean(),
   due: joi.string(),
