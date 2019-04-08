@@ -5,7 +5,7 @@ const bodyparser = require('body-parser');
 const db = require('./db.js');
 const todo = require('./routes/todo.js');
 const priorities = require('./routes/priorities.js');
-const port = process.env.PORT;
+const port = process.env.SERVER_PORT;
 
 app.use(bodyparser.json());
 

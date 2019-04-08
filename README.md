@@ -4,7 +4,7 @@ Node.js todo api
 ## Database recovery
 1. Open mysql and create a new database, name it as you like, example: todoDB
 2. Open cmd and head to the bin directory of your mysql installment, example: C:\Program Files\MySQL\MySQL Server 5.7\bin
-3. Once in bin directory run: mysql -h **YOUR_HOST_ADDRESS** -u **YOUR_USERNAME** -p **YOUR_TARGET_DATABASE_NAME** < **PATH_TO_todoDB.sql**
+3. Once in bin directory run: mysql -h **YOUR_DB_HOST_ADDRESS** -u **YOUR_DB_USERNAME** -p **YOUR_TARGET_DATABASE_NAME** < **PATH_TO_todoDB.sql**
 4. Type in your password and the database gets written.
 <img src="pictures/restore.PNG" alt="windows cmd restore db">
 
@@ -13,11 +13,11 @@ Node.js todo api
 2. Create a .env file to the root of the project.
 3. Copy the skeleton for .env from .env-example
 4. Configure the .env file with the credentials of your own.
-    * Set PORT to which port you want server to be ran on, example 55555.
-    * HOST is the addres of your database host address, example: localhost.
-    * USER field stands for the username of your database user, example: root.
-    * PASSWORD is the password of your database users password, example: root1234.
-    * Finally the DB field is the name of your database which you will be using, example: todoDB.
+    * Set SERVER_PORT to which port you want server to be ran on, example 55555.
+    * DB_HOST is the addres of your database host address, example: localhost.
+    * DB_USER field stands for the username of your database user, example: root.
+    * DB_PASSWORD is the password of your database users password, example: root1234.
+    * Finally the DB_NAME field is the name of your database which you will be using, example: todoDB.
 5. Start the server with the command: node server.js
 <img src='pictures/env.PNG' alt="env fields in editor">
 
@@ -93,7 +93,7 @@ example:
 ### GET
 localhost:55555/todo/10
 
-output: 
+output:
 
     {
       "id": 10,
