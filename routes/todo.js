@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
   db.query('SELECT * FROM todo', (err, result, fields) => {
     if(err) {
       console.log(err);
-      res.sendStatus(400);
+      res.sendStatus(500);
     }
     else {
       res.send(result);
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
   joi.validate(req.body, postSchema, (err, result) => {
     if(err) {
       console.log(err);
-      res.sendStatus(500);
+      res.sendStatus(400);
     }
     else {
       db.query('INSERT INTO todo SET ?', result, (err, results) => {
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
           res.sendStatus(500);
         }
         else {
-          res.send(result);
+          res.status(201).send(result);
         }
       })
     }
@@ -65,6 +65,9 @@ const single = router.get('/:id', (req, res) => {
       console.log(err);
       res.sendStatus(400);
     }
+    else if (result[0] === undefined) {
+      res.sendStatus(404);
+    }
     else {
       res.send(result[0]);
     }
@@ -76,7 +79,7 @@ router.put('/:id', (req, res) => {
   joi.validate(req.body, putSchema, (err, result) => {
     if(err) {
       console.log(err);
-      res.sendStatus(500);
+      res.sendStatus(400);
     }
     else {
       db.query('UPDATE todo SET ? where id = ?', [result, req.params.id], (err, rows, fields) => {
@@ -98,6 +101,9 @@ router.delete('/:id', (req, res) => {
     if(err) {
       console.log(err);
       res.sendStatus(400);
+    }
+    else if (rows.affectedRows == 0) {
+      res.sendStatus(204);
     }
     else {
       res.sendStatus(200);

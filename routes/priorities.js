@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   db.query('SELECT * FROM priorities', (err, result, fields) => {
     if(err){
       console.log(err);
-      res.sendStatus(400);
+      res.sendStatus(500);
     }
     else {
       res.send(result);
@@ -23,7 +23,10 @@ router.get('/:id', (req, res) => {
   db.query('SELECT * FROM priorities WHERE id = ?', req.params.id, (err, result, fields) => {
     if(err){
       console.log(err);
-      res.sendStatus(400);
+      res.sendStatus(500);
+    }
+    else if (result[0] === undefined) {
+      res.sendStatus(404);
     }
     else {
       res.send(result[0]);
