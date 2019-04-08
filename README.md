@@ -22,7 +22,6 @@ Node.js todo api
 <img src='pictures/env.PNG' alt="env fields in editor">
 
 # Api calls and routes
-All calls will return status code 400 on failure. POST, PUT and DELETE methods return status code 200 on success.
 
 ## /todo
 
@@ -82,8 +81,8 @@ example:
     {
         "what": "Drink beer",
         "who": "Matti Meikäläinen",
-        "in_progress": 0,
-        "done": 1,
+        "in_progress": false,
+        "done": true,
         "due": "2019-03-31",
         "priority": 5
     }
@@ -113,8 +112,8 @@ example:
     {
         "what": "Change title",
         "who": "Developer",
-        "in_progress": 1,
-        "done": 0,
+        "in_progress": true,
+        "done": false,
         "priority": 5
     }
 
