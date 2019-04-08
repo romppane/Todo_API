@@ -1,6 +1,25 @@
 const db = require('../db.js');
 const express = require('express');
 const router = express.Router();
+const joi = require('joi');
+
+const postSchema = joi.object().keys({
+  what: joi.string().max(100).required(),
+  who: joi.string().max(40).required(),
+  in_progress: joi.boolean(),
+  done: joi.boolean(),
+  due: joi.string(),
+  priority: joi.number().integer().min(1).max(5).required()
+}).options({stripUnknown : true});
+
+const putSchema = joi.object().keys({
+  what: joi.string().max(100),
+  who: joi.string().max(40),
+  in_progress: joi.boolean(),
+  done: joi.boolean(),
+  due: joi.string(),
+  priority: joi.number().integer().min(1).max(5)
+}).options({stripUnknown : true});
 
 // get all
 router.get('/', (req, res) => {
@@ -17,19 +36,28 @@ router.get('/', (req, res) => {
 
 // post new
 router.post('/', (req, res) => {
-  db.query('INSERT INTO todo SET ?', req.body, (err, rows, fields) => {
+  joi.validate(req.body, postSchema, (err, result) => {
     if(err) {
       console.log(err);
-      res.sendStatus(400);
+      res.sendStatus(500);
     }
     else {
-      res.sendStatus(200);
+      db.query('INSERT INTO todo SET ?', result, (err, results) => {
+        if(err) {
+          console.log(err);
+          res.sendStatus(500);
+        }
+        else {
+          res.send(result);
+        }
+      })
     }
   })
+
 });
 
 // get single todo
-router.get('/:id', (req, res) => {
+const single = router.get('/:id', (req, res) => {
   db.query('SELECT * FROM todo WHERE id = ?', req.params.id, (err, result, fields) => {
     if(err){
       console.log(err);
@@ -43,13 +71,21 @@ router.get('/:id', (req, res) => {
 
 // update todo
 router.put('/:id', (req, res) => {
-  db.query('UPDATE todo SET ? where id = ?', [req.body, req.params.id], (err, rows, fields) => {
+  joi.validate(req.body, putSchema, (err, result) => {
     if(err) {
       console.log(err);
-      res.sendStatus(400);
+      res.sendStatus(500);
     }
     else {
-      res.sendStatus(200);
+      db.query('UPDATE todo SET ? where id = ?', [result, req.params.id], (err, rows, fields) => {
+        if(err) {
+          console.log(err);
+          res.sendStatus(500);
+        }
+        else {
+          res.send(result);
+        }
+      })
     }
   })
 });
